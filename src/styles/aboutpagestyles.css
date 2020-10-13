@@ -1,0 +1,121 @@
+.flip-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  background-color: transparent;
+  width: 250px;
+  height: 400px;
+  min-width: 250px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  margin: 25px 25px 0px 0px;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #f6f6f6;
+  color: black;
+  display: flex;
+  justify-content: center;
+  box-shadow: 10px 10px 5px #95849e;
+  border-radius: 10px;
+}
+
+/* Style the back side */
+.flip-card-back {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #2b0a3d;
+  color: white;
+  transform: rotateY(180deg);
+  font-size: 20px;
+  font-variant: petite-caps;
+  box-shadow: 10px 10px 5px rgb(170, 170, 170);
+  border-radius: 10px;
+}
+
+.flip-card-image {
+  max-height: 400px;
+  max-width: 100%;
+  margin: auto;
+}
+
+.badge-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: wrap;
+}
+
+.badge-image {
+  width: 75px;
+  height: 75px;
+  margin: 10px;
+  transition: transform 0.8s ease-in-out;
+}
+
+.header {
+  padding: 20px 40px 20px 40px;
+  text-align: center;
+  background: #2b0a3d;
+  color: white;
+  font-size: 35px;
+}
+
+.subheader {
+  color: #2b0a3d;
+  padding: 25px 0px 20px 0px;
+  font-size: 35px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.subheader:before,
+.subheader:after {
+  content: "";
+  border-top: 2px solid;
+  margin: 0 20px 0 0;
+  flex: 1 0 20px;
+}
+
+.subheader:after {
+  margin: 0 0 0 20px;
+}
+
+.visionQuote {
+  font-style: italic;
+  font-size: 25px;
+  text-align: center;
+  color: #2b0a3d;
+}

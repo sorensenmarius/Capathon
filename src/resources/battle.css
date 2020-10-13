@@ -1,0 +1,123 @@
+.menu-item {
+  display: flex;
+  align-items: center;
+}
+.menu-item-battle {
+  display: flex;
+  align-items: center;
+  height: 2.5vw;
+  width: 25vw;
+}
+.menu-select {
+  transform: rotate(270deg);
+  height: 1.5vw;
+  opacity: 0;
+  margin-left: -2vw;
+}
+.menu-item:hover .menu-select {
+  opacity: 1;
+}
+.menu-item-battle:hover .menu-select {
+  opacity: 1;
+}
+
+.normal-attack-ani-s {
+  animation: normal-attack-s 3s;
+}
+
+@keyframes normal-attack-s {
+  0% {
+  }
+  100% {
+  }
+}
+.normal-attack-ani-m {
+  animation: normal-attack-m 3s;
+}
+
+@keyframes normal-attack-m {
+  0% {
+    visibility: visible;
+  }
+  100% {
+  }
+}
+
+.normal-attack-ani-l {
+  animation: normal-attack-l 1s steps(2, end);
+}
+
+@keyframes normal-attack-l {
+  0% {
+    visibility: visible;
+  }
+  33% {
+    visibility: hidden;
+  }
+  66% {
+    visibility: visible;
+  }
+}
+
+.enemy-normal-attack-ani-l {
+  animation: enemy-normal-attack-l 1s steps(2, end) 1s;
+}
+@keyframes enemy-normal-attack-l {
+  0% {
+    visibility: hidden;
+  }
+  20% {
+    visibility: visible;
+  }
+  40% {
+    visibility: hidden;
+  }
+  60% {
+    visibility: visible;
+  }
+  80% {
+    visibility: hidden;
+  }
+}
+
+@keyframes hp-normal-attack {
+  from {
+    width: 13vw;
+  }
+  to {
+    width: 0vw;
+  }
+  50% {
+    background-color: darkgoldenrod;
+  }
+  75% {
+    background-color: red;
+  }
+}
+.hp-normal-attack-ani-l {
+  animation: hp-normal-attack 2s forwards 2s;
+}
+
+@keyframes faint-normal-attack {
+  from {
+    transform: translateY(0vw);
+  }
+  to {
+    transform: translateY(30vw);
+  }
+}
+.faint-normal-attack-ani-l {
+  animation: faint-normal-attack 2s 3s forwards;
+}
+
+@keyframes missing-enter-ani {
+  from {
+    transform: translateX(40vw);
+  }
+  to {
+    transform: translateX(0vw);
+  }
+}
+.missing-enter {
+  animation: missing-enter-ani 3s forwards;
+}

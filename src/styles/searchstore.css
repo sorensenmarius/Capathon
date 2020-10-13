@@ -1,0 +1,94 @@
+.wrapperCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 100%;
+  background-color: #f2f2f2;
+}
+
+.pokeWrapper {
+  display: flex;
+  flex-flow: column;
+  margin: 20px;
+  height: 300px;
+  width: 220px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #d9d9d9;
+}
+
+.pokeImg {
+  width: 82%;
+  display: block;
+  margin: 15px auto;
+}
+
+.pokemonName {
+  margin: 0;
+  font-weight: bold;
+  text-transform: capitalize;
+  display: block;
+  margin: 0 auto;
+}
+
+.abilityWrapper {
+  display: flex;
+  flex-flow: column;
+}
+
+.pokemonAbility {
+  display: flex;
+  margin: 6px;
+  flex-flow: column;
+  border-bottom: 2px solid black;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  margin-top: -24px;
+  margin-left: -41px;
+  background-position: bottom;
+  width: 100vw;
+  background-size: cover;
+  background-image: url(../pics/header.png);
+}
+
+.heading {
+  margin-top: 24px;
+}
+
+.spacing {
+  padding: 24px;
+}
+
+.input-styled {
+  font-size: 1em;
+  height: 40px;
+  width: 400px;
+  border-radius: 5px;
+  border: none;
+}
+
+.input-styled::foucus {
+  outline-color: #ade7f5;
+}
+
+.infoContainer {
+  display: flex;
+  justify-content: center;
+  flex-flow: row;
+  width: 100%;
+}
+
+.pokemonType {
+  margin: 3px;
+  padding: 3px;
+  border-radius: 3px;
+  text-transform: capitalize;
+}
