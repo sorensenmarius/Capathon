@@ -4,6 +4,7 @@ import PokeList from '../components/PokemonList';
 import Search from '../components/SearchHeader';
 import BuyPage from './BuyPage_Oppgavesett_2_EDIT';
 import '../styles/searchstore.css';
+import { CircularProgress } from '@material-ui/core';
 
 //Oppgave 1:
 //På search siden så ser vi kun en magikarp, kan dere liste ut alle 150 pokemons fra first generation?
@@ -12,34 +13,71 @@ const StorePage = (props) => {
   //State
   const [searchTerm, setSearchTerm] = useState('');
   const [pokeInfo, setPokeInfo] = useState([]);
+  const [allPokeInfo, setAllPokeInfo] = useState([]); // Keep all data seperatly for faster loading time and faster search
+  const [loading, setLoading] = useState(false);
 
   //variable for URL
+  const initialURL = `https://pokeapi.co/api/v2/pokemon/`;
 
-  const initialURL = `https://pokeapi.co/api/v2/pokemon/?limit=1&offset=128`;
-
-  //mount
-  useEffect(() => {
+  useEffect(async () => {
+    setLoading(true);
     async function fetchData() {
-      let response = await getAllPokemon(initialURL);
-
+      const url = `${initialURL}?limit=25`;
+      const response = await getAllPokemon(url);
+  
       let thePokeInfo = await loadPokemon(
         response.results,
         searchTerm,
         pokeInfo,
       );
-      setPokeInfo(thePokeInfo);
+      setAllPokeInfo(thePokeInfo)
+      setLoading(false)
+      backgroundLoad(thePokeInfo)
     }
-    fetchData();
-  }, [searchTerm]);
+    fetchData()
+  }, [])
+
+  // Load most of the data in the background to get faster loading of first view
+  async function backgroundLoad(first25) {
+    const url = initialURL + '?limit=125&offset=25'
+    const response = await getAllPokemon(url);
+
+    const thePokeInfo = await loadPokemon(
+      response.results,
+      searchTerm,
+      pokeInfo,
+    );
+
+    setAllPokeInfo(first25.concat(thePokeInfo));
+  }
+
+  //mount
+  useEffect(() => {
+    if(!searchTerm) {
+      setPokeInfo(allPokeInfo)
+      return
+    }
+
+    const filteredPokeInfo = allPokeInfo.filter(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    setPokeInfo(filteredPokeInfo)
+  }, [searchTerm, allPokeInfo]);
+
 
   //Oppgave 2:
   //Her er en påbegynt søkefunksjon, kan dere fullføre denne?
   //Hint: Komponenten Search har en prop som heter handleChange
-  function handleChange(e) {}
+  function handleChange(e) {
+    const input = e.target.value
+    setSearchTerm(input)
+  }
 
   //Oppgave 3:
   //NBNB! SE POKEMONCARD KOMPONENT FOR OPPGAVE 3
 
+  const centerStyle = {
+    margin: 'auto',
+    display: 'block'
+  }
   return (
     <div>
       {props.pokemonSelected.name ? (
@@ -50,7 +88,9 @@ const StorePage = (props) => {
         />
       ) : (
         <div>
-          <Search />
+          <Search 
+            handleChange={handleChange}
+          />
           <div className="spacing">
             <h1 className="heading">Pokemon Store</h1>
             <p>
@@ -63,6 +103,9 @@ const StorePage = (props) => {
             setPokemonSelected={props.setPokemonSelected}
             search={pokeInfo}
           />
+          {loading ? (
+            <CircularProgress color="#2B0A3D" style={centerStyle}/>
+          ) : ''}
         </div>
       )}
     </div>

@@ -8,6 +8,7 @@ import Button from '../components/Button';
 import { fetchSuggested } from '../service/GetPokemon.js';
 import Modal from '../components/BuyModal';
 import '../styles/styles.css';
+import { makeStyles } from '@material-ui/core';
 
 /* 
 Hei! Velkommen til oppgavesett 2, her er det flere oppgaver som skal
@@ -28,12 +29,12 @@ const BuyPage = (props) => {
   const [pokemonArray, setPokemonArray] = useState([]);
   // OPPGAVE 1
   const pokemonStats = () => {
-    /* 
-    Vi har fått beskjed fra brukere at stats bare viser ? i GUI.
-    Kan dere fikse at riktig stat blir vist? 
+    
+    // Vi har fått beskjed fra brukere at stats bare viser ? i GUI.
+    // Kan dere fikse at riktig stat blir vist? 
 
-    ** BONUS ** 
-    gjerne bruk litt styling her for å gjøre stats mer interessant
+    // ** BONUS ** 
+    // gjerne bruk litt styling her for å gjøre stats mer interessant
 
     const statColour = {
       hp: '#53cd5b',
@@ -43,9 +44,9 @@ const BuyPage = (props) => {
       'special-defense': '#ad62f6',
       speed: '#f06ace',
     };
-   */
+
     return (
-      <span>
+      <span style={statColour}>
         {props.pokemonSelected.stats.map((e, i) => JSON.stringify(e))}
       </span>
     );
@@ -56,7 +57,7 @@ const BuyPage = (props) => {
     /* Vi får rapporter fra brukere at de gir penger til Meowth 
     istede for å kjøpe pokemons når de trykker 'BUY POKEMON', 
     dette MÅ vi fikse */
-    return false;
+    return true;
   };
 
   // OPPGAVE 3
@@ -115,7 +116,9 @@ const BuyPage = (props) => {
             <Button onClick={() => setOpen(true)}>Buy Pokemon</Button>
           </div>
         </div>
-        <PokeInfoGrid pokemonSelected={props.pokemonSelected}>
+        <PokeInfoGrid 
+          pokemonSelected={props.pokemonSelected}
+          >
           {pokemonStats()}
         </PokeInfoGrid>
       </div>

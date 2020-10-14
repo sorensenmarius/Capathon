@@ -1,5 +1,15 @@
 import React from "react";
 import typeColor from "../resources/TypeColor";
+
+// const statColour = {
+//   hp: '#53cd5b',
+//   attack: '#f6de52',
+//   defense: '#ed7f0f',
+//   'special-attack': '#56b0f1',
+//   'special-defense': '#ad62f6',
+//   speed: '#f06ace',
+// };
+
 const PokeInfoGrid = (props) => (
   <div className="pokemon-buy-info">
     <span>
@@ -31,7 +41,9 @@ const PokeInfoGrid = (props) => (
     <span>
       <strong>Stats: </strong>
     </span>
-    {props.children}
+    <br />
+    {stats(props)}
+    <br />
     <span>
       <strong>Price: </strong>
     </span>{" "}
@@ -46,5 +58,18 @@ const PokeInfoGrid = (props) => (
     </span>
   </div>
 );
+
+const stats = (props) => {
+  return props.pokemonSelected.stats.map((e, i) => (
+    <>
+      <p key={i}>
+        {e.stat.name}:
+      </p>
+      <p>
+        {e.base_stat}
+      </p>
+    </>
+  ));
+};
 
 export default PokeInfoGrid;
