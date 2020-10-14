@@ -82,10 +82,6 @@ const AboutPage = () => {
   // Oppgave 5: Lag en funksjon som returnerer et ansatt-kort for hvert teammedlem i listen "consultants"
   // Hint: Se på kortene som allerede er laget for ledelsen i Pokémon4Cash.
   // Oppgave 6: Style baksiden av ansattkortene slik dere selv mener de bør være stylet
-  
-  // let conString = '<div className="flip-card-container">';
-  //   consultants.forEach(element => {
-
 
   let consultantCards = consultants.map(c => (
     <div className="flip-card">
