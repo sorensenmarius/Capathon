@@ -51,31 +51,27 @@ const AboutPage = () => {
     {
       name: "Odin",
       position: "Encrypter",
-      imgUrl:
-      "../resources/odin.jpg",
+      img: Odin
     },
     {
       name: "Brynjar",
       position: "Decrypter",
-      imgUrl: "../resources/brynjar.jpg",
+      img: Brynjar
     },
     {
       name: "Marius",
       position: "Programmer",
-      imgUrl:
-      "../resources/marius.jpg",
+      img: Marius
     },
     {
       name: "Ove",
       position: "Graphics Expert",
-      imgUrl:
-      "../resources/ove.jpg",
+      img: Ove
     },
     {
       name: "Tor-Fredrik",
       position: "Project manager",
-      imgUrl:
-      "../resources/tor.jpg",
+      img: Tor
     },
   ];
 
@@ -83,31 +79,27 @@ const AboutPage = () => {
   // Hint: Se på kortene som allerede er laget for ledelsen i Pokémon4Cash.
   // Oppgave 6: Style baksiden av ansattkortene slik dere selv mener de bør være stylet
   
-  let conString = '<div className="flip-card-container">';
-    consultants.forEach(element => {
-    
-    conString +=
-       '<div className="flip-card"> \
-          <div className="flip-card-inner">\
-            <div className="flip-card-front">\
-              <img\
-                src='+element.imgUrl+'\
-                alt="new"\
-                className="flip-card-image"\
-              />\
-            </div>\
-            <div className="flip-card-back">\
-              <h1>'+element.name+'</h1>\
-              <h2>'+element.position+'</h2>\
-            </div>\
-          </div>\
-        </div>'});
-    conString += "</div>"
-    
- // = *Funksjon som returnerer et ansattkort for hvert objekt i consultants*
-  //console.log(conString)
- 
- let consultantCards = <div dangerouslySetInnerHTML={ { __html: conString}} />
+  // let conString = '<div className="flip-card-container">';
+  //   consultants.forEach(element => {
+
+
+  let consultantCards = consultants.map(c => (
+    <div className="flip-card">
+      <div className="flip-card-inner">
+        <div className="flip-card-front">
+          <img
+            src={c.img}
+            alt="new"
+            className="flip-card-image"
+          />
+        </div>
+        <div className="flip-card-back">
+          <h1>{c.name}</h1>
+          <h2>{c.position}</h2>
+        </div>
+      </div>
+    </div>
+  ))
 
   
   const [showMagik, setShowMagik] = useState(false);

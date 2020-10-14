@@ -82,14 +82,14 @@ const BuyPage = (props) => {
   // Legg til en Loading spinner som dere kan lage eller laste inn
   // selv og legg til der data bruker tid før det vises. Foreksempel
   // suggestedPokemons feltet eller ability feltet
-  useEffect( async () => {
+  useEffect(() => {
     setLoading(true);
     window.scrollTo(0, 0);
-    await getPokemonAbilities(
+    getPokemonAbilities(
       props.pokemonSelected.abilities[0].ability.url,
       setPokemonAbilities,
     );
-    await suggestedPokemons();
+    suggestedPokemons();
     setLoading(false)
   }, [props.pokemonSelected.abilities, props.pokemonSelected.types]);
 
