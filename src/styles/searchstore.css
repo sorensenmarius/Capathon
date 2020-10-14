@@ -92,3 +92,8 @@
   border-radius: 3px;
   text-transform: capitalize;
 }
+
+.storeButton {
+  margin: auto;
+  display: block;
+}

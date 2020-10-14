@@ -27,6 +27,7 @@ export default function CustomizedButtons(props) {
   return (
     <div onClick={props.onClick}>
       <ColorButton
+        style={props.style}
         variant="contained"
         color="primary"
         className={classes.margin}
