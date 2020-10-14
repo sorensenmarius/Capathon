@@ -68,7 +68,29 @@ const AboutPage = () => {
   // Hint: Se på kortene som allerede er laget for ledelsen i Pokémon4Cash.
   // Oppgave 6: Style baksiden av ansattkortene slik dere selv mener de bør være stylet
   let consultantCards; // = *Funksjon som returnerer et ansattkort for hvert objekt i consultants*
-
+  function consultantCards(consultents) {
+    allConsultents = []
+    consultents.forEach(element => {
+      
+      txt ='<div className="flip-card"> \
+      <div className="flip-card-inner">\
+        <div className="flip-card-front">\
+          <img\
+            src="'+element.imgUrl+'"\
+            alt="new"\
+            className="flip-card-image"\
+          />\
+        </div>\
+        <div className="flip-card-back">\
+          <h1>' + element.name + '</h1>\
+          <h2>'+element.position +'</h2>\
+        </div>\
+      </div>\
+    </div>'
+    allConsultents.push(txt)
+    });
+    return allConsultents
+}
   const [showMagik, setShowMagik] = useState(false);
 
   return (
