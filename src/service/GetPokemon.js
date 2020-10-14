@@ -42,7 +42,7 @@ export const getPokemonAbilities = (url, setPokemonAbilities) =>
       setPokemonAbilities(json);
     });
 
-export const fetchSuggested = (setPokemonArray, type) => {
+export const fetchSuggested = async (setPokemonArray, type) => {
   fetch(`https://pokeapi.co/api/v2/type/${type}`)
     .then((res) => res.json())
     .then((json) =>

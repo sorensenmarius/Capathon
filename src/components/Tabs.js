@@ -7,7 +7,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 // import Typography from "@material-ui/core/Typography";
 import Box from '@material-ui/core/Box';
-import PokeLogo from '../pics/pokelogo.jpg';
+import PokeLogo from '../pics/logo.png';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -65,6 +65,7 @@ const SimpleTabs = ({ value, setValue, children }) => {
           alt="$$$$pokemons4cash$$$$"
           style={{
             position: 'absolute',
+            left: '40px',
             height: '100px',
             marginBottom: '30px',
           }}

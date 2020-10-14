@@ -8,7 +8,8 @@ import Button from '../components/Button';
 import { fetchSuggested } from '../service/GetPokemon.js';
 import Modal from '../components/BuyModal';
 import '../styles/styles.css';
-import { makeStyles } from '@material-ui/core';
+import { CircularProgress, makeStyles } from '@material-ui/core';
+import SelectInput from '@material-ui/core/Select/SelectInput';
 
 /* 
 Hei! Velkommen til oppgavesett 2, her er det flere oppgaver som skal
@@ -27,6 +28,13 @@ const BuyPage = (props) => {
   const [pokemonAbilities, setPokemonAbilities] = useState([]);
   const [open, setOpen] = useState(false);
   const [pokemonArray, setPokemonArray] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const centerStyle = {
+    margin: 'auto',
+    display: 'block'
+  }
+
   // OPPGAVE 1
   const pokemonStats = () => {
     
@@ -57,7 +65,7 @@ const BuyPage = (props) => {
     /* Vi får rapporter fra brukere at de gir penger til Meowth 
     istede for å kjøpe pokemons når de trykker 'BUY POKEMON', 
     dette MÅ vi fikse */
-    return true;
+    return false;
   };
 
   // OPPGAVE 3
@@ -67,20 +75,22 @@ const BuyPage = (props) => {
     til pokemonen valgt. Bruk informasjonen tilgjengelig om den
     valgte pokemonen for å lage bedre forslag for brukeren.
     foreksempel gress til gress pokemon osv. */
-    fetchSuggested(setPokemonArray, props.pokemonSelected.types[0].type.name);
+    fetchSuggested(setPokemonArray, props.pokemonSelected.types[0].type.name)
   };
 
   /* BONUS OPPGAVE */
   // Legg til en Loading spinner som dere kan lage eller laste inn
   // selv og legg til der data bruker tid før det vises. Foreksempel
   // suggestedPokemons feltet eller ability feltet
-  useEffect(() => {
+  useEffect( async () => {
+    setLoading(true);
     window.scrollTo(0, 0);
-    getPokemonAbilities(
+    await getPokemonAbilities(
       props.pokemonSelected.abilities[0].ability.url,
       setPokemonAbilities,
     );
-    suggestedPokemons();
+    await suggestedPokemons();
+    setLoading(false)
   }, [props.pokemonSelected.abilities, props.pokemonSelected.types]);
 
   return (
@@ -125,6 +135,9 @@ const BuyPage = (props) => {
       <div style={{ width: '86vw', margin: '0 auto' }}>
         <h2 style={{ margin: '25px' }}>
           Suggested other pokemon you might be intrested in:
+          {loading ? (
+            <CircularProgress color="#2B0A3D" style={centerStyle}/>
+          ) : ''}
         </h2>
         <PokeList
           pokemon={pokemonArray}
