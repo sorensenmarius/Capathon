@@ -43,6 +43,7 @@ const AboutPage = () => {
   // Oppgave 4: For hver person i teamet deres:
   //            Legg til navn, rolle i teamet og en url/filsti til et bilde av personen
   //            som json-objekter i listen "consultants"
+  //Bilde fungerer ikke
   var consultants = [
     {
       name: "Consultant 1",
@@ -62,10 +63,41 @@ const AboutPage = () => {
       imgUrl:
         "https://www.kindpng.com/picc/m/253-2533471_brock-pokemon-png-transparent-png.png",
     },
+    {
+      name: "Odin",
+      position: "Encrypter",
+      imgUrl:
+        "https://www.kindpng.com/picc/m/253-2533471_brock-pokemon-png-transparent-png.png",
+    },
+    {
+      name: "Brynjar",
+      position: "Decrypter",
+      imgUrl:
+        "https://www.kindpng.com/picc/m/253-2533471_brock-pokemon-png-transparent-png.png",
+    },
+    {
+      name: "Marius",
+      position: "Programmer",
+      imgUrl:
+        "https://www.kindpng.com/picc/m/253-2533471_brock-pokemon-png-transparent-png.png",
+    },
+    {
+      name: "Ove",
+      position: "Graphics Expert",
+      imgUrl:
+        "https://www.kindpng.com/picc/m/253-2533471_brock-pokemon-png-transparent-png.png",
+    },
+    {
+      name: "Tor-Fredrik",
+      position: "Project manager",
+      imgUrl:
+        "https://www.kindpng.com/picc/m/253-2533471_brock-pokemon-png-transparent-png.png",
+    },
   ];
 
   // Oppgave 5: Lag en funksjon som returnerer et ansatt-kort for hvert teammedlem i listen "consultants"
   // Hint: Se på kortene som allerede er laget for ledelsen i Pokémon4Cash.
+
   // Oppgave 6: Style baksiden av ansattkortene slik dere selv mener de bør være stylet
   let consultantCards; // = *Funksjon som returnerer et ansattkort for hvert objekt i consultants*
 
@@ -101,7 +133,7 @@ const AboutPage = () => {
           <div className="flip-card-inner">
             <div className="flip-card-front">
               <img
-                src="https://www.clipartkey.com/mpngs/m/8-88479_pokemon-misty-png.png"
+                src="../src/pics/1.png"
                 alt="new"
                 className="flip-card-image"
               />
