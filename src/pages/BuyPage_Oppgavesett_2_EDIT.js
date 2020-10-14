@@ -65,7 +65,7 @@ const BuyPage = (props) => {
     /* Vi får rapporter fra brukere at de gir penger til Meowth 
     istede for å kjøpe pokemons når de trykker 'BUY POKEMON', 
     dette MÅ vi fikse */
-    return false;
+    return true;
   };
 
   // OPPGAVE 3

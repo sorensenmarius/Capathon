@@ -17,6 +17,8 @@ export const typeColor = {
   psychic: "#FA92B2",
   rock: "#D1C17D",
   steel: "#D1D1E0",
+  ground: "#E0C068",
+  ghost: "#6666BB",
 };
 
 export default typeColor;
