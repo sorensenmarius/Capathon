@@ -91,7 +91,7 @@ const AboutPage = () => {
           <div className="flip-card-inner">\
             <div className="flip-card-front">\
               <img\
-                src="'+element.imgUrl+'"\
+                src='+element.imgUrl+'\
                 alt="new"\
                 className="flip-card-image"\
               />\
