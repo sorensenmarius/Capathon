@@ -3,11 +3,14 @@ import { ImageTextComp } from '../components/ImageTextComponent';
 import pokeimg from '../resources/pokemon.png';
 import flop from '../resources/meowmagi.png';
 import '../styles/styles.css';
+import PokeList from '../components/PokemonList';
+import { getAllPokemon, loadPokemon } from '../service/GetPokemon';
 
 function HomePage(props) {
+  const initialURL = `https://pokeapi.co/api/v2/pokemon/`;
+
   const calculateTimeLeft = () => {
-    let year = new Date().getFullYear();
-    const difference = +new Date(`${year}-10-14 21:00`) - +new Date();
+    const difference = saleExpiry - +new Date();
     let timeLeft = {};
 
     if (difference > 0) {
@@ -22,8 +25,18 @@ function HomePage(props) {
     return timeLeft;
   };
 
+  const [saleExpiry] = useState(new Date().setMinutes(new Date().getMinutes() + 10));
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-  const [year] = useState(new Date().getFullYear());
+  const [salePokemon, setSalePokemon] = useState([])
+  const [saleNumbers, setSaleNumbers] = useState([])
+  
+  useEffect(() => {
+    async function getRandom() {
+      setSalePokemon(await getRandomPokemon())
+    } 
+    getRandom();
+    getRandomNumbers();
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -33,7 +46,28 @@ function HomePage(props) {
     return () => clearTimeout(timer);
   });
 
+
   const timerComponents = [];
+
+  async function getRandomPokemon() {
+    let results = []
+    for(let i = 0; i < 6; i++) {
+      const randomNumber = Math.floor(Math.random() * 151);
+      const url = `${initialURL}${randomNumber}`;
+      const response = await getAllPokemon(url);
+      results.push(response)
+    }
+
+    return results
+  }
+
+  function getRandomNumbers() {
+    let numbers = []
+    for(let i = 0; i < 6; i++) {
+      numbers.push(Math.floor(Math.random() * 50) + 25)
+    }
+    setSaleNumbers(numbers)
+  }
 
   Object.keys(timeLeft).forEach((interval, i) => {
     if (!timeLeft[interval]) {
@@ -50,59 +84,22 @@ function HomePage(props) {
   return (
     <div className="App">
       <div className="coming-soon">
-        <h1>COMING SOON</h1>
+        <h1>WELCOME TO Pokémon4Cash</h1>
         <hr />
         <div className="counter">
           {timerComponents.length ? (
-            timerComponents
-          ) : (
-            <span>Site Completed!</span>
-          )}
+            <>
+              <p>Hurry! The sale ends in { timerComponents }</p>
+            </>
+          ) : ''}
         </div>
       </div>
 
-      <div className="paragraphContainer">
-        <p>
-          Welcome to Pokémon4Cash! Our site is currently under construction, but
-          soon you will be able to check out our Pokémon, buy your next pet and
-          read more about our business. Our dedicated team of consultants are
-          working hard to create our online store, style our web page and convey
-          information about our core business.
-          <br />
-          <br />
-          Our last consultants have left us in a bit of a pickle, however, the
-          new team will surely deliver the value we so desire. Fueled by free
-          food and beverages, they will make sure that the new page will have
-          enhanced functionality, be bug-free and be styled to the point of
-          ridiculousness. Stay tuned for more Pokémon4Cash!
-        </p>
-      </div>
-
-      <h1>Hello Shopper!</h1>
-      <div>
-        <p>
-          Welcome to our page! Here you can check out Pokémon, buy your next pet
-          and read more about our business.
-        </p>
-      </div>
-      <div style={{ display: "flex" }}>
-        <ImageTextComp
-          heading="Meowth recommends Magicarp!"
-          text="Go ahead, buy one now!"
-          img={flop}
-          link="#"
-          linkOnClick={() => {
-            props.setValue(1);
-          }}
-        ></ImageTextComp>
-        <ImageTextComp
-          heading="GMO experiments ongoing"
-          text="Ever dreamed of owning a Pikachu-Snorlax hybrid? Now's your chance!"
-          img={pokeimg}
-          link="https://pokemon.alexonsager.net/"
-          linkOnClick={() => {}}
-        ></ImageTextComp>
-      </div>
+      <PokeList 
+        pokemon={salePokemon}
+        setPokemonSelected={props.setPokemonSelected}
+        saleNumbers={saleNumbers}
+      />
     </div>
   );
 }

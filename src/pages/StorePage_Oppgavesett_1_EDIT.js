@@ -19,7 +19,7 @@ const StorePage = (props) => {
   //variable for URL
   const initialURL = `https://pokeapi.co/api/v2/pokemon/`;
 
-  useEffect(async () => {
+  useEffect(() => {
     setLoading(true);
     async function fetchData() {
       const url = `${initialURL}?limit=25`;

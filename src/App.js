@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SimpleTabs from "./components/Tabs";
 import Footer from "./Footer";
 import HomePage from "./pages/HomePage";
@@ -10,10 +10,17 @@ import "./styles/styles.css";
 const App = () => {
   const [pokemonSelected, setPokemonSelected] = useState({});
   const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if(pokemonSelected.name) {
+      setValue(1)
+    }
+  }, [pokemonSelected])
+
   return (
     <div className="app-wrapper">
       <SimpleTabs value={value} setValue={setValue}>
-        <HomePage Label={"HOME"} setValue={setValue} />
+        <HomePage Label={"HOME"} setValue={setValue} setPokemonSelected={setPokemonSelected} />
         <Store
           Label={"Store"}
           pokemonSelected={pokemonSelected}
