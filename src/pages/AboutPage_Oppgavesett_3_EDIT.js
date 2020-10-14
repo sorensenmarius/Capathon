@@ -5,7 +5,6 @@ import Brynjar from "../resources/brynjar.jpg";
 import Tor from "../resources/tor.jpg"
 import Ove from "../resources/ove.jpg"
 import Marius from "../resources/marius.jpg"
-import BG from "../resources/bakgrunn.jpg"
 import "../styles/aboutpagestyles.css";
 
 
@@ -51,27 +50,32 @@ const AboutPage = () => {
     {
       name: "Odin",
       position: "Encrypter",
-      img: Odin
+      img: Odin,
+      skill: "React, OMNeT++"
     },
     {
       name: "Brynjar",
       position: "Decrypter",
-      img: Brynjar
+      img: Brynjar,
+      skill: "Python, Go"
     },
     {
       name: "Marius",
       position: "Programmer",
-      img: Marius
+      img: Marius, 
+      skill: "React, JavaScript"
     },
     {
       name: "Ove",
       position: "Graphics Expert",
-      img: Ove
+      img: Ove, 
+      skill: "HTML, CSS"
     },
     {
       name: "Tor-Fredrik",
       position: "Project manager",
-      img: Tor
+      img: Tor, 
+      skill: "R, Matlab"
     },
   ];
 
@@ -96,6 +100,7 @@ const AboutPage = () => {
         <div className="flip-card-back">
           <h1>{c.name}</h1>
           <h2>{c.position}</h2>
+          <h3>{c.skill}</h3>
         </div>
       </div>
     </div>
@@ -142,7 +147,6 @@ const AboutPage = () => {
             <div className="flip-card-back">
             <h1 className="flip-card-image-bg-txt">Misty</h1>
             <h2 className="flip-card-image-bg-txt">IT-Director</h2>
-            {/*<img src={BG} alt="no background" className="flip-card-image-bg"/>*/}
             </div>
           </div>
         </div>
