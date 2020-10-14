@@ -5,6 +5,7 @@ import flop from '../resources/meowmagi.png';
 import '../styles/styles.css';
 import PokeList from '../components/PokemonList';
 import { getAllPokemon, loadPokemon } from '../service/GetPokemon';
+import { CircularProgress } from '@material-ui/core';
 
 function HomePage(props) {
   const initialURL = `https://pokeapi.co/api/v2/pokemon/`;
@@ -29,10 +30,13 @@ function HomePage(props) {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
   const [salePokemon, setSalePokemon] = useState([])
   const [saleNumbers, setSaleNumbers] = useState([])
+  const [loading, setLoading] = useState(false)
   
   useEffect(() => {
     async function getRandom() {
+      setLoading(true)
       setSalePokemon(await getRandomPokemon())
+      setLoading(false)
     } 
     getRandom();
     getRandomNumbers();
@@ -94,7 +98,9 @@ function HomePage(props) {
           ) : ''}
         </div>
       </div>
-
+      {loading ? (
+        <CircularProgress />
+      ) : ''}
       <PokeList 
         pokemon={salePokemon}
         setPokemonSelected={props.setPokemonSelected}
