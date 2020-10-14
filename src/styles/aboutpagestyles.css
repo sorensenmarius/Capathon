@@ -55,12 +55,18 @@
   flex-direction: column;
   justify-content: space-around;
   background-color: #2b0a3d;
-  color: white;
+  color: #2b0a3d;
   transform: rotateY(180deg);
   font-size: 20px;
   font-variant: petite-caps;
   box-shadow: 10px 10px 5px rgb(170, 170, 170);
   border-radius: 10px;
+  background-image: url("../resources/bakgrunn.jpg");
+  background-size: cover;
+}
+.flip-card-front:hover{
+  animation-name:flip; 
+  animation-duration: 1s;
 }
 
 .flip-card-image {
@@ -68,6 +74,7 @@
   max-width: 100%;
   margin: auto;
 }
+
 
 .badge-container {
   display: flex;
@@ -84,13 +91,13 @@
 
 }
 .badge-image:hover{
-  animation-name: slide; 
+  animation-name: flip; 
   animation-duration: 1s; 
 }
 
-@keyframes slide{
-  from{background-color: white; transform: rotate(0deg);}
-  to{background-color: lightcoral; transform:rotate(360deg);}
+@keyframes flip{
+  from{ transform: rotate(0deg);}
+  to{ transform:rotate(360deg);}
 }
 
 .header {
