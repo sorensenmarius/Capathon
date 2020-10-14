@@ -6,10 +6,10 @@ export const loadPokemon = async (data, searchTerm, pokeInfo) => {
     }),
   );
 
-  const results = pokeInfo.filter((pokemon) =>
-    pokemon.name.toLowerCase().includes(searchTerm),
-  );
   if (searchTerm.length) {
+    const results = pokeInfo.filter((pokemon) =>
+      pokemon.name.toLowerCase().includes(searchTerm),
+    );
     return results;
   } else {
     return _pokemonData;
