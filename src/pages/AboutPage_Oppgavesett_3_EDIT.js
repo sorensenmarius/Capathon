@@ -2,17 +2,23 @@ import React, {useState} from "react";
 import Magikarp from "../resources/flopping.jpg";
 import "../styles/aboutpagestyles.css";
 
+
 const AboutPage = () => {
   var mysteryHeaders = [
     "VmlzaW9u",
-    "TWFuYWdlbWVudA==",
+    "TWFuYWdlbWVudA==", 
     "QXdhcmRzIGFuZCBhY2hpZXZlbWVudHM=",
     "T3VyIGNvbnN1bHRhbnRz",
   ];
 
   // Oppgave 1: Noe rart har skjedd med overskriftene på denne siden. Finn ut hva som er galt og
   //            skriv koden som gjør at correctHeaders blir en dekodet liste med riktige overskrifter.
-  var correctHeaders = mysteryHeaders;
+  var correctHeading = []
+  mysteryHeaders.forEach(element => {
+    correctHeading.push(atob(element))
+    
+  });
+  var correctHeaders = correctHeading;
 
   const badgeImageUrls = [
     "https://vignette.wikia.nocookie.net/pokemon/images/2/24/Boulderbadge.png/revision/latest/scale-to-width-down/50?cb=20100418182312",
