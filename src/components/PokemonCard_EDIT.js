@@ -7,7 +7,6 @@ import typeColor from "../resources/TypeColor";
 
 const PokemonCard = (props) => {
   const pokemonInfo = props;
-  console.log(typeColor)
   return (
     <div
       className="pokeWrapper"
