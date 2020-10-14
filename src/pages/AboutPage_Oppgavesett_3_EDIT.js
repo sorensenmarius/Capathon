@@ -32,37 +32,16 @@ const AboutPage = () => {
   ];
 
   // Oppgave 2: Legg til en css-animasjon som utløses av at man holder musepekeren over hver av badgene.
-      // Rosa og Spinner
   // Oppgave 3: Gjør slik at man blir viderekoblet til siden https://pokemon.fandom.com/wiki/Gym_Badges
   //            hvis man trykker på en badge.
-
   var badgeimages = badgeImageUrls.map((url) => {
-    return <a href="https://pokemon.fandom.com/wiki/Gym_Badges" target="_blank"><img src={url} alt="new" className="badge-image" /></a>;
+    return <img src={url} alt="new" className="badge-image" />;
   });
 
   // Oppgave 4: For hver person i teamet deres:
   //            Legg til navn, rolle i teamet og en url/filsti til et bilde av personen
   //            som json-objekter i listen "consultants"
-  //Bilde fungerer ikke
   var consultants = [
-    {
-      name: "Consultant 1",
-      position: "Developer",
-      imgUrl:
-        "https://www.pngkit.com/png/detail/62-623222_pokemon-png-pack-ash-ketchum.png",
-    },
-    {
-      name: "Consultant 2",
-      position: "Tester",
-      imgUrl:
-        "https://www.clipartkey.com/mpngs/m/8-88479_pokemon-misty-png.png",
-    },
-    {
-      name: "Consultant 3",
-      position: "Project leader",
-      imgUrl:
-        "https://www.kindpng.com/picc/m/253-2533471_brock-pokemon-png-transparent-png.png",
-    },
     {
       name: "Odin",
       position: "Encrypter",
@@ -97,32 +76,35 @@ const AboutPage = () => {
 
   // Oppgave 5: Lag en funksjon som returnerer et ansatt-kort for hvert teammedlem i listen "consultants"
   // Hint: Se på kortene som allerede er laget for ledelsen i Pokémon4Cash.
-
   // Oppgave 6: Style baksiden av ansattkortene slik dere selv mener de bør være stylet
-  let consultantCards; // = *Funksjon som returnerer et ansattkort for hvert objekt i consultants*
-  function consultantCards(consultents) {
-    allConsultents = []
-    consultents.forEach(element => {
-      
-      txt ='<div className="flip-card"> \
-      <div className="flip-card-inner">\
-        <div className="flip-card-front">\
-          <img\
-            src="'+element.imgUrl+'"\
-            alt="new"\
-            className="flip-card-image"\
-          />\
-        </div>\
-        <div className="flip-card-back">\
-          <h1>' + element.name + '</h1>\
-          <h2>'+element.position +'</h2>\
-        </div>\
-      </div>\
-    </div>'
-    allConsultents.push(txt)
-    });
-    return allConsultents
-}
+  
+  let conString = '<div className="flip-card-container">';
+    consultants.forEach(element => {
+    
+    conString +=
+       '<div className="flip-card"> \
+          <div className="flip-card-inner">\
+            <div className="flip-card-front">\
+              <img\
+                src="'+element.imgUrl+'"\
+                alt="new"\
+                className="flip-card-image"\
+              />\
+            </div>\
+            <div className="flip-card-back">\
+              <h1>'+element.name+'</h1>\
+              <h2>'+element.position+'</h2>\
+            </div>\
+          </div>\
+        </div>'});
+    conString += "</div>"
+    
+ // = *Funksjon som returnerer et ansattkort for hvert objekt i consultants*
+  //console.log(conString)
+ 
+ let consultantCards = <div dangerouslySetInnerHTML={ { __html: conString}} />
+
+  
   const [showMagik, setShowMagik] = useState(false);
 
   return (
@@ -155,7 +137,7 @@ const AboutPage = () => {
           <div className="flip-card-inner">
             <div className="flip-card-front">
               <img
-                src="../src/pics/1.png"
+                src="https://www.clipartkey.com/mpngs/m/8-88479_pokemon-misty-png.png"
                 alt="new"
                 className="flip-card-image"
               />
