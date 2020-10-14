@@ -2,17 +2,23 @@ import React, {useState} from "react";
 import Magikarp from "../resources/flopping.jpg";
 import "../styles/aboutpagestyles.css";
 
+
 const AboutPage = () => {
   var mysteryHeaders = [
     "VmlzaW9u",
-    "TWFuYWdlbWVudA==",
+    "TWFuYWdlbWVudA==", 
     "QXdhcmRzIGFuZCBhY2hpZXZlbWVudHM=",
     "T3VyIGNvbnN1bHRhbnRz",
   ];
 
   // Oppgave 1: Noe rart har skjedd med overskriftene på denne siden. Finn ut hva som er galt og
   //            skriv koden som gjør at correctHeaders blir en dekodet liste med riktige overskrifter.
-  var correctHeaders = mysteryHeaders;
+  var correctHeading = []
+  mysteryHeaders.forEach(element => {
+    correctHeading.push(atob(element))
+    
+  });
+  var correctHeaders = correctHeading;
 
   const badgeImageUrls = [
     "https://vignette.wikia.nocookie.net/pokemon/images/2/24/Boulderbadge.png/revision/latest/scale-to-width-down/50?cb=20100418182312",
@@ -26,10 +32,12 @@ const AboutPage = () => {
   ];
 
   // Oppgave 2: Legg til en css-animasjon som utløses av at man holder musepekeren over hver av badgene.
+      // Rosa og Spinner
   // Oppgave 3: Gjør slik at man blir viderekoblet til siden https://pokemon.fandom.com/wiki/Gym_Badges
   //            hvis man trykker på en badge.
+
   var badgeimages = badgeImageUrls.map((url) => {
-    return <img src={url} alt="new" className="badge-image" />;
+    return <a href="https://pokemon.fandom.com/wiki/Gym_Badges" target="_blank"><img src={url} alt="new" className="badge-image" /></a>;
   });
 
   // Oppgave 4: For hver person i teamet deres:

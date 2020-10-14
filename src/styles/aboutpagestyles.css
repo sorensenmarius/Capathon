@@ -80,6 +80,17 @@
   height: 75px;
   margin: 10px;
   transition: transform 0.8s ease-in-out;
+
+
+}
+.badge-image:hover{
+  animation-name: slide; 
+  animation-duration: 1s; 
+}
+
+@keyframes slide{
+  from{background-color: white; transform: rotate(0deg);}
+  to{background-color: lightcoral; transform:rotate(360deg);}
 }
 
 .header {
