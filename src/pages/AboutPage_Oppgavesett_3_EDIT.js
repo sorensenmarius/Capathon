@@ -1,5 +1,10 @@
 import React, {useState} from "react";
 import Magikarp from "../resources/flopping.jpg";
+import Odin from "../resources/odin.jpg";
+import Brynjar from "../resources/brynjar.jpg";
+import Tor from "../resources/tor.jpg"
+import Ove from "../resources/ove.jpg"
+import Marius from "../resources/marius.jpg"
 import "../styles/aboutpagestyles.css";
 
 
@@ -46,31 +51,31 @@ const AboutPage = () => {
       name: "Odin",
       position: "Encrypter",
       imgUrl:
-        "https://www.kindpng.com/picc/m/253-2533471_brock-pokemon-png-transparent-png.png",
+        {Odin},
     },
     {
       name: "Brynjar",
       position: "Decrypter",
       imgUrl:
-        "https://www.kindpng.com/picc/m/253-2533471_brock-pokemon-png-transparent-png.png",
+        {Brynjar},
     },
     {
       name: "Marius",
       position: "Programmer",
       imgUrl:
-        "https://www.kindpng.com/picc/m/253-2533471_brock-pokemon-png-transparent-png.png",
+        {Marius},
     },
     {
       name: "Ove",
       position: "Graphics Expert",
       imgUrl:
-        "https://www.kindpng.com/picc/m/253-2533471_brock-pokemon-png-transparent-png.png",
+        {Ove},
     },
     {
       name: "Tor-Fredrik",
       position: "Project manager",
       imgUrl:
-        "https://www.kindpng.com/picc/m/253-2533471_brock-pokemon-png-transparent-png.png",
+        {Tor},
     },
   ];
 
