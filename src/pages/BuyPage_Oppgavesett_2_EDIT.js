@@ -66,8 +66,7 @@ const BuyPage = (props) => {
     til pokemonen valgt. Bruk informasjonen tilgjengelig om den
     valgte pokemonen for å lage bedre forslag for brukeren.
     foreksempel gress til gress pokemon osv. */
-
-    fetchSuggested(setPokemonArray, 'normal');
+    fetchSuggested(setPokemonArray, props.pokemonSelected.types[0].type.name);
   };
 
   /* BONUS OPPGAVE */
