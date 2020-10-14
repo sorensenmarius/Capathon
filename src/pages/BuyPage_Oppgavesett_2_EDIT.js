@@ -110,7 +110,11 @@ const BuyPage = (props) => {
         }}
       >
         <div className="pokemon-effect-info">
-          <div style={{maxWidth: '30%', display: 'inline-block'}}>
+      <div style={{position:"absolute", right:"40px"}}>
+        <h2>Price:</h2>
+        <h1>{props.pokemonSelected.base_experience}$</h1>
+      </div>
+          <div style={{maxWidth: '30%', display: 'inline-block', float: 'left'}}>
             <PokemonCard
               setPokemonSelected={props.setPokemonSelected}
               {...props.pokemonSelected}
@@ -151,11 +155,11 @@ const BuyPage = (props) => {
           </div>
         </div>
       </div>
-      <PokeInfoGrid 
+      {/* <PokeInfoGrid 
         pokemonSelected={props.pokemonSelected}
         >
         {pokemonStats()}
-      </PokeInfoGrid>
+      </PokeInfoGrid> */}
       <div style={{ width: '86vw', margin: '0 auto' }}>
         <h2 style={{ margin: '25px' }}>
           Suggested other pokemon you might be intrested in:

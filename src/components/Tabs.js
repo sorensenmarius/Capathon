@@ -69,8 +69,7 @@ const SimpleTabs = ({ value, setValue, children }) => {
             height: '100px',
             marginBottom: '30px',
           }}
-        />
-
+          />
         <Tabs
           value={value}
           onChange={handleChange}

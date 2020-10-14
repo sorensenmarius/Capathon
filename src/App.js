@@ -28,7 +28,7 @@ const App = () => {
         />
         <AboutPage Label={"About Pokemon4Cash"} />
         <MarketingPage Label={"Marketing"} />
-      </SimpleTabs>
+      </SimpleTabs >
       <Footer />
     </div>
   );

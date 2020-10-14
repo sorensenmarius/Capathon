@@ -49,7 +49,7 @@ const AboutPage = () => {
   var consultants = [
     {
       name: "Odin",
-      position: "IOT Guru",
+      position: "IoT Guru",
       img: Odin,
       skill: "Java, OMNeT++"
     },
