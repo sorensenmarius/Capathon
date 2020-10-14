@@ -93,6 +93,12 @@ const BuyPage = (props) => {
     setLoading(false)
   }, [props.pokemonSelected.abilities, props.pokemonSelected.types]);
 
+  const stats = props.pokemonSelected.stats.map((e, i) => (
+      <div style={{padding: '5px'}} key={i}>
+        {e.stat.name}: {e.base_stat}
+      </div>
+    ))
+
   return (
     <div>
       <Button onClick={() => props.setPokemonSelected({})}>{'< BACK'}</Button>
@@ -103,35 +109,53 @@ const BuyPage = (props) => {
           alignItems: 'start',
         }}
       >
-        <div style={{ flexShrink: '0', width: '20vw' }}>
-          <PokemonCard
-            setPokemonSelected={props.setPokemonSelected}
-            {...props.pokemonSelected}
-          />
-        </div>
         <div className="pokemon-effect-info">
-          <b>Ability {props.pokemonSelected.abilities[0].ability.name}:</b>
-          <br />
-          {pokemonAbilities.effect_entries &&
-            pokemonAbilities.effect_entries.filter(
-              (e) => e.language.name === 'en',
-            )[0].effect}
+          <div style={{maxWidth: '30%', display: 'inline-block'}}>
+            <PokemonCard
+              setPokemonSelected={props.setPokemonSelected}
+              {...props.pokemonSelected}
+            />
+          </div>
+          <div
+            style={{
+              width: '70%',
+              display: 'inline-block'
+            }}
+          >
+            <div>
+              <b>Abilities</b>
+              <p style={{textTransform: 'capitalize'}}>{props.pokemonSelected.abilities.slice(0, 3).map((ab, i, arr) => `${ab.ability.name}${i !== arr.length - 1 ? ', ' : ''}`)}</p>
+            </div>
+            <div>
+              <b>Ability {props.pokemonSelected.abilities[0].ability.name}:</b>
+              <br />
+              {pokemonAbilities.effect_entries &&
+                pokemonAbilities.effect_entries.filter(
+                  (e) => e.language.name === 'en',
+                )[0].effect}
+            </div>
+            <div>
+              <br />
+              <b>Stats</b>
+              {stats}
+            </div>
+          </div>
           <div
             style={{
               bottom: '10px',
+              right: '10px',
               position: 'absolute',
             }}
           >
-            <b> {props.pokemonSelected.base_experience}$</b>
             <Button onClick={() => setOpen(true)}>Buy Pokemon</Button>
           </div>
         </div>
-        <PokeInfoGrid 
-          pokemonSelected={props.pokemonSelected}
-          >
-          {pokemonStats()}
-        </PokeInfoGrid>
       </div>
+      <PokeInfoGrid 
+        pokemonSelected={props.pokemonSelected}
+        >
+        {pokemonStats()}
+      </PokeInfoGrid>
       <div style={{ width: '86vw', margin: '0 auto' }}>
         <h2 style={{ margin: '25px' }}>
           Suggested other pokemon you might be intrested in:

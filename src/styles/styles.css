@@ -61,11 +61,11 @@ html {
 
 .pokemon-effect-info {
   position: relative;
-  width: 45vw;
-  height: 350px;
+  width: 90vw;
   background-color: white;
   margin: 20px;
   padding: 20px;
+  padding-bottom: 75px;
   border: 1px solid #d9d9d9;
   border-radius: 5px;
 }
