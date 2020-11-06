@@ -1,4 +1,4 @@
-# Winning contribution to hackathon for Capgemini Norway 2020
+# Winning contribution to the hackathon for Capgemini Norway 2020
 ## Hackathon - Get started
 	1. Clone the repo
 	2. Run the app (ensure you have node.js installed)
