@@ -7,10 +7,10 @@
 	3. Find the app on localhost:3000
 
 ## Team
-[Ove Jørgensen](github.com/ovejorgensen)
+[Ove Jørgensen](www.github.com/ovejorgensen)
 
-[Tor-Fredrik Torgersen](github.com/TTorgersen)
+[Tor-Fredrik Torgersen](www.github.com/TTorgersen)
 
-[Odin Bjørnebo](github.com/TheseusDeus)
+[Odin Bjørnebo](www.github.com/TheseusDeus)
 
-[Brynjar Ulriksen](github.com/BrynjarUlriksen)
+[Brynjar Ulriksen](www.github.com/BrynjarUlriksen)
