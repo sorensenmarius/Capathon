@@ -1,9 +1,16 @@
-# Hackathon - Get started
+# Winning contribution to hackathon for Capgemini Norway 2020
+## Hackathon - Get started
+	1. Clone the repo
+	2. Run the app (ensure you have node.js installed)
+		a. npm install
+		b. npm start
+	3. Find the app on localhost:3000
 
-	1. Klone lagets repository fra github til en lokal mappe
-	2. Åpne en terminal i mappen hvor repositoriet ligger og kjør følgende kommandoer:
-		a. I Visual Studio Code kan man åpne mappen prosjektet ligger i og deretter trykke Terminal -> New Terminal i menyen øverst i vinduet.
-		b. Kommandoer: 
-			i. npm install
-			ii. npm start
-		c. Applikasjonen skal nå ha startet opp og kjøres på localhost:3000
+## Team
+[Ove Jørgensen](github.com/ovejorgensen)
+
+[Tor-Fredrik Torgersen](github.com/TTorgersen)
+
+[Odin Bjørnebo](github.com/TheseusDeus)
+
+[Brynjar Ulriksen](github.com/BrynjarUlriksen)
